@@ -32,7 +32,7 @@ function fetcher()
 
         for(let v of data){
             
-            write( v.name + " (" + v.username + ") " + v.email + "<br>" )
+            write( "<b>" + v.name + " (" + v.username + ") " + v.email + " " + v.phone + "</b><br>" )
             write("WEBSITE: " + v.website + "<br>")
             write("ADDRESS: " + v.address.street + v.address.suite + " " + v.address.city + " " + v.address.zipcode + "<br>")
             write("GEO: " + v.address.geo.lat + " " + v.address.geo.lng)
