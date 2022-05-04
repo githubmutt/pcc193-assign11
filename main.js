@@ -25,8 +25,9 @@ function fetcher()
 
    var elem = document.querySelector(".output")
    elem.style.color = "blue"
-   
-    fetch( url  , {method: 'get'})
+   elem.style.color = "#2980b9"
+    
+   fetch( url  , {method: 'get'})
     .then(response => response.json())
     .then( data => {
 
