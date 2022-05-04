@@ -10,7 +10,7 @@ function write(text){
 
     let stuff = "%c text"
     
-    let v = document.querySelector(".output").innerHTML += text + " &nbsp;&nbsp;&nbsp;"
+    let v = document.querySelector(".output").innerHTML += text + " "
 
     console.log( text)
 
@@ -23,15 +23,18 @@ function fetcher()
    
    let url = "https://jsonplaceholder.typicode.com/users"
 
+   var elem = document.querySelector(".output")
+   elem.style.color = "blue"
+   
     fetch( url  , {method: 'get'})
     .then(response => response.json())
     .then( data => {
 
         console.log( data )
-        document.querySelector(".output").innerHTML =  "<h2>"
+        document.querySelector(".output").innerHTML =  ""
 
         for(let v of data){
-            
+            write("<h1>")
             write( "<b>" + v.name + " (" + v.username + ") " + v.email + " " + v.phone + "</b><br>" )
             write("WEBSITE: " + v.website + "<br>")
             write("ADDRESS: " + v.address.street + v.address.suite + " " + v.address.city + " " + v.address.zipcode + "<br>")
