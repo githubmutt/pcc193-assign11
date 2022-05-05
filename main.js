@@ -24,7 +24,7 @@ function fetcher()
    let url = "https://jsonplaceholder.typicode.com/users"
 
    // Testing url for error in fetching
-   url = "httpstat.us:/500"
+ //  url = "httpstat.us:/500"
    
    let elem = document.querySelector(".output")
    elem.style.color = "blue"
@@ -55,8 +55,9 @@ function fetcher()
     ).catch(
           function( response ){
               // https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
+
               write("Error fetching " + url + "<br>" )
-              write("TypeError: " + response )
+              write("TypeError: " + response.message )
           }
 
 
