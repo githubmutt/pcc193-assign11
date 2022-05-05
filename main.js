@@ -23,7 +23,10 @@ function fetcher()
    
    let url = "https://jsonplaceholder.typicode.com/users"
 
-   var elem = document.querySelector(".output")
+   // Testing url for error in fetching
+   url = "httpstat.us:/500"
+   
+   let elem = document.querySelector(".output")
    elem.style.color = "blue"
    elem.style.color = "#2980b9"
     
@@ -35,11 +38,10 @@ function fetcher()
         document.querySelector(".output").innerHTML =  ""
 
         for(let v of data){
-            write("<h1>")
             write( "<b>" + v.name + " (" + v.username + ") " + v.email + " " + v.phone + "</b><br>" )
             write("WEBSITE: " + v.website + "<br>")
-            write("ADDRESS: " + v.address.street + v.address.suite + " " + v.address.city + " " + v.address.zipcode + "<br>")
-            write("GEO: " + v.address.geo.lat + " " + v.address.geo.lng)
+            write("ADDRESS: " + v.address.street + " " + v.address.suite + " " + v.address.city + " " + v.address.zipcode + "<br>")
+            write("GEO: [ " + v.address.geo.lat + " , " + v.address.geo.lng + " ]")
             write("<br>")
             write(v.company.name + "<br>" )
             write(v.company.catchPhrase + "<br>")
@@ -50,6 +52,14 @@ function fetcher()
 
     }
     
+    ).catch(
+          function( response ){
+              // https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
+              write("Error fetching " + url + "<br>" )
+              write("TypeError: " + response )
+          }
+
+
     );
 
 }
